@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:jeff-hykin/berkeley_pacman.git
+	branch = master
+	commit = 54f2b81d9a3d2bcabcb7115b8a1d62c362f34892
+	parent = 514b6f23714f083ff54f88034d0189f7ed81b408
+	method = merge
+	cmdver = 0.4.1
