@@ -34,31 +34,6 @@ def tiny_maze_search(problem):
 
 def depth_first_search(problem):
     "*** YOUR CODE HERE ***"
-    # What does this function need to return?
-    #     list of actions that reaches the goal
-    # 
-    # What data is available?
-    #     start_state = problem.get_start_state() # returns a string
-    # 
-    #     problem.is_goal_state(start_state) # returns boolean
-    # 
-    #     transitions = problem.get_successors(start_state)
-    #     transitions[0].state
-    #     transitions[0].action
-    #     transitions[0].cost
-    # 
-    #     print(transitions) # would look like the list-of-lists on the next line
-    #     [
-    #         [ "B", "0:A->B", 1.0, ],
-    #         [ "C", "1:A->C", 2.0, ],
-    #         [ "D", "2:A->D", 4.0, ],
-    #     ]
-    # 
-    # Example:
-    #     start_state = problem.get_start_state()
-    #     transitions = problem.get_successors(start_state)
-    #     return [  transitions[0].action  ]
-    
     util.raise_not_defined()
 
 
@@ -109,7 +84,9 @@ def a_star_search(problem, heuristic=null_heuristic):
     # Example:
     #     start_state = problem.get_start_state()
     #     transitions = problem.get_successors(start_state)
-    #     return [  transitions[0].action  ]
+    #     example_path = [  transitions[0].action  ]
+    #     path_cost = problem.get_cost_of_actions(example_path)
+    #     return example_path
     
     util.raise_not_defined()
 
