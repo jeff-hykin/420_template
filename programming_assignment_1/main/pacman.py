@@ -807,7 +807,7 @@ def load_agent(pacman, nographics):
                         "Using the keyboard requires graphics (not text display)"
                     )
                 return getattr(module, pacman)
-    raise Exception("The agent " + pacman + " is not specified in any *Agents.py.")
+    raise Exception("The agent '" + pacman + "' is not specified in any *Agents.py.")
 
 
 def replay_game(layout, actions, display):

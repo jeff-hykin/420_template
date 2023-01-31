@@ -19,6 +19,7 @@ Pacman agents (in search_agents.py).
 
 from builtins import object
 import util
+import os
 
 def tiny_maze_search(problem):
     """
@@ -49,15 +50,45 @@ def uniform_cost_search(problem, heuristic=None):
     util.raise_not_defined()
 
 
+# 
+# heuristics
+# 
+def a_really_really_bad_heuristic(position, problem):
+    from random import random, sample, choices
+    return int(random()*1000)
+
 def null_heuristic(state, problem=None):
-    """
-    A heuristic function estimates the cost from the current state to the nearest
-    goal in the provided SearchProblem.  This heuristic is trivial.
-    """
     return 0
 
+def your_heuristic(state, problem=None):
+    from search_agents import FoodSearchProblem
+    
+    # 
+    # heuristic for the find-the-goal problem
+    # 
+    if isinstance(problem, SearchProblem):
+        # data
+        pacman_x, pacman_y = state
+        goal_x, goal_y     = problem.goal
+        
+        # YOUR CODE HERE (set value of optimisitic_number_of_steps_to_goal)
+        
+        optimisitic_number_of_steps_to_goal = 0
+        return optimisitic_number_of_steps_to_goal
+    # 
+    # traveling-salesman problem (collect multiple food pellets)
+    # 
+    elif isinstance(problem, FoodSearchProblem):
+        # the state includes a grid of where the food is (problem isn't ter)
+        position, food_grid = state
+        pacman_x, pacman_y = position
+        
+        # YOUR CODE HERE (set value of optimisitic_number_of_steps_to_goal)
+        
+        optimisitic_number_of_steps_to_goal = 0
+        return optimisitic_number_of_steps_to_goal
 
-def a_star_search(problem, heuristic=null_heuristic):
+def a_star_search(problem, heuristic=your_heuristic):
     """Search the node that has the lowest combined cost and heuristic first."""
     "*** YOUR CODE HERE ***"
     
@@ -136,6 +167,7 @@ class SearchProblem(object):
         """
         util.raise_not_defined()
 
+if os.path.exists("./hidden/search.py"): from hidden.search import *
 # fallback on a_star_search
 for function in [breadth_first_search, depth_first_search, uniform_cost_search, ]:
     try: function(None)
