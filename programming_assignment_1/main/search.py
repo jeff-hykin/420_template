@@ -60,7 +60,7 @@ def a_really_really_bad_heuristic(position, problem):
 def null_heuristic(state, problem=None):
     return 0
 
-def your_heuristic(state, problem=None):
+def heuristic1(state, problem=None):
     from search_agents import FoodSearchProblem
     
     # 
@@ -88,7 +88,7 @@ def your_heuristic(state, problem=None):
         optimisitic_number_of_steps_to_goal = 0
         return optimisitic_number_of_steps_to_goal
 
-def a_star_search(problem, heuristic=your_heuristic):
+def a_star_search(problem, heuristic=heuristic1):
     """Search the node that has the lowest combined cost and heuristic first."""
     "*** YOUR CODE HERE ***"
     
