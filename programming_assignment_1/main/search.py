@@ -167,7 +167,7 @@ class SearchProblem(object):
         """
         util.raise_not_defined()
 
-if os.path.exists("./hidden/search.py"): from hidden.search import *
+# if os.path.exists("./hidden/search.py"): from hidden.search import *
 # fallback on a_star_search
 for function in [breadth_first_search, depth_first_search, uniform_cost_search, ]:
     try: function(None)
