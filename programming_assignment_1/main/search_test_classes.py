@@ -201,7 +201,7 @@ class GraphSearchTest(test_classes.TestCase):
         if self.heuristic != None:
             solution = alg(problem, self.heuristic)
         else:
-            solution = alg(problem)
+            solution = alg(problem, lambda *args: 0)
 
         if type(solution) != type([]):
             return (
@@ -324,7 +324,7 @@ class PacmanSearchTest(test_classes.TestCase):
         if heuristic != None:
             solution = alg(problem, heuristic)
         else:
-            solution = alg(problem)
+            solution = alg(problem, lambda *args: 0)
 
         if type(solution) != type([]):
             return (
