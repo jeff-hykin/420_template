@@ -39,6 +39,7 @@ base_tests = [
     [ "PositionSearchProblem", "big_maze"          , ],
     [ "PositionSearchProblem", "huge_maze"         , ],
     [ "FoodSearchProblem"    , "food_search_1"     , ],
+    [ "FoodSearchProblem"    , "box_search"        , ],
     [ "FoodSearchProblem"    , "food_search_2"     , ],
     [ "FoodSearchProblem"    , "food_search_3"     , ],
 ]
