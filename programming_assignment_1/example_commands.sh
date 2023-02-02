@@ -1,5 +1,5 @@
 # play pacman yourself
-python pacmac.py --layout big_safe_search
+python pacman.py --layout big_safe_search
 
 # autograder
 python autograder.py a_star_only
