@@ -53,7 +53,7 @@ for base_test in base_tests:
         tests.append([ heuristic_name, *base_test ])
 
 def run_and_extract_data(heuristic, problem, layout):
-    output, error_output = run(" ".join(["python3", "pacman.py", "--timeout", "1", "--quiet_text_graphics", "-l", layout, "-p", "SearchAgent", "-a", f"prob={problem},heuristic={heuristic}", ]), timeout_sec=30)
+    output, error_output = run(" ".join(["python3", "pacman.py", "--quiet_text_graphics", "-l", layout, "-p", "SearchAgent", "-a", f"prob={problem},heuristic={heuristic}", ]), timeout_sec=30)
     # seconds
     if not output:
         return [ None, None, None, "timed out" ]
@@ -116,7 +116,6 @@ def run_and_extract_data(heuristic, problem, layout):
     
     return pacman_score, nodes_expanded, int(solution_length), seconds
 
-print(f'''heuristics_to_test = {heuristics_to_test}''')
 longest_name = max([ len(each) for each in  heuristics_to_test])+2
 
 print()
