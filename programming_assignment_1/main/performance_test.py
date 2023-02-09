@@ -116,7 +116,8 @@ def run_and_extract_data(heuristic, problem, layout):
     
     return pacman_score, nodes_expanded, int(solution_length), seconds
 
-longest_name = max(*[ len(each) for each in  heuristics_to_test])+2
+print(f'''heuristics_to_test = {heuristics_to_test}''')
+longest_name = max([ len(each) for each in  heuristics_to_test])+2
 
 print()
 print(f"""{f"HEURISTIC".rjust(longest_name)},              LAYOUT,   SECONDS, EXPANDED_NODE_COUNT, PACMAN_SCORE, SOLUTION_LENGTH""")
