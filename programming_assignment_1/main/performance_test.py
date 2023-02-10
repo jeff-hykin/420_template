@@ -1,33 +1,50 @@
 import subprocess
-import shlex
-from subprocess import Popen, PIPE
-from threading import Timer
+import sys
 
-def run(cmd, timeout_sec):
-    proc = Popen(shlex.split(cmd), stdout=PIPE, stderr=PIPE)
-    timer = Timer(timeout_sec, proc.kill)
+python_executable = sys.executable
+
+def run(*args, timeout_sec=None):
+    """
+        Example:
+            stdout, stderr, exit_code = Console.run("echo", "hello", timeout_sec=30)
+    """
+    from subprocess import Popen, PIPE
+    from threading import Timer
+    
+    proc = Popen(list(args), stdout=PIPE, stderr=PIPE)
+    timer = None
+    if timeout_sec:
+        timer = Timer(timeout_sec, proc.kill)
     try:
-        timer.start()
+        if timer:
+            timer.start()
         stdout, stderr = proc.communicate()
-        return stdout.decode('utf-8')[0:-1], stderr.decode('utf-8')[0:-1]
+        stdout = stdout.decode('utf-8')[0:-1]
+        stderr = stderr.decode('utf-8')[0:-1]
+        return stdout, stderr, proc.returncode
     finally:
-        timer.cancel()
-    return None
+        if timer:
+            timer.cancel()
+    return None, None, None
 
 def indent(string, by="    ", ignore_first=False):
     indent_string = (" "*by) if isinstance(by, int) else by
     string = string if isinstance(string, str) else f"{string}"
     start = indent_string if not ignore_first else ""
     return start + string.replace("\n", "\n"+indent_string)
-        
+
 # 
 # auto install ez_yaml
 # 
 try:
     import ez_yaml
 except Exception as error:
-    print(subprocess.check_output(["python3", "-m", "pip", "install", "ez_yaml"]).decode('utf-8')[0:-1])
-    import ez_yaml
+    stdout, stderr, exit_code = run(python_executable, "-m", "pip", "install", "ez_yaml")
+    if exit_code == 0:
+        import ez_yaml
+    else:
+        print("please install ez_yaml. E.g.\n    pip install ez_yaml")
+        exit(1)
 
 # 
 # parse args
@@ -53,9 +70,9 @@ for base_test in base_tests:
         tests.append([ heuristic_name, *base_test ])
 
 def run_and_extract_data(heuristic, problem, layout):
-    output, error_output = run(" ".join(["python3", "pacman.py", "--quiet_text_graphics", "-l", layout, "-p", "SearchAgent", "-a", f"prob={problem},heuristic={heuristic}", ]), timeout_sec=30)
+    output, error_output, exit_code = run(python_executable, "pacman.py", "--quiet_text_graphics", "-l", layout, "-p", "SearchAgent", "-a", f"prob={problem},heuristic={heuristic}", timeout_sec=30)
     # seconds
-    if not output:
+    if output == None:
         return [ None, None, None, "timed out" ]
     
     # output example:
