@@ -198,6 +198,8 @@ class GraphSearchTest(test_classes.TestCase):
     def get_sol_info(self, search):
         alg = getattr(search, self.alg)
         problem = GraphSearch(self.graph_text)
+        if not alg.__defaults__:
+            alg = lambda arg1, arg2=None: getattr(search, self.alg)(arg1)
         if self.heuristic != None:
             solution = alg(problem, self.heuristic)
         else:
@@ -320,7 +322,9 @@ class PacmanSearchTest(test_classes.TestCase):
             if self.heuristic_name != None
             else None
         )
-
+        
+        if not alg.__defaults__:
+            alg = lambda arg1, arg2=None: getattr(search, self.alg)(arg1)
         if heuristic != None:
             solution = alg(problem, heuristic)
         else:
