@@ -79,9 +79,13 @@ def heuristic1(state, problem=None):
     # traveling-salesman problem (collect multiple food pellets)
     # 
     elif isinstance(problem, FoodSearchProblem):
-        # the state includes a grid of where the food is (problem isn't ter)
+        # the state includes a grid of where the food is
         position, food_grid = state
         pacman_x, pacman_y = position
+        
+        has_food_at_0_0 = food_grid[0][0]
+        if has_food_at_0_0:
+            print("there's food at 0,0")
         
         # YOUR CODE HERE (set value of optimisitic_number_of_steps_to_goal)
         
