@@ -150,7 +150,7 @@ class Grades(object):
 
 """
             )
-        print("""    (Don't forget to upload your project to receive credit)""")
+        print("""    (Don't forget to push to Github to receive credit)""")
 
         if self.edx_output:
             self.produce_output()
