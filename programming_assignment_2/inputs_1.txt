@@ -1,0 +1,9 @@
+move X A 1
+move O A 2
+move X A 3
+move O B 1
+move X B 3
+move O C 2
+move X C 1
+move O C 3
+choose X

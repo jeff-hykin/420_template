@@ -1,0 +1,33 @@
+Welcome to tic tac toe!
+. . .
+. . .
+. . .
+X . .
+. . .
+. . .
+X . O
+. . .
+. . .
+X . O
+. . .
+. . X
+move (A, 2) score: -0.9
+move (B, 1) score: -0.9
+move (B, 2) score: -0.7
+move (B, 3) score: -0.9
+move (C, 1) score: -0.9
+move (C, 2) score: -0.9
+number of nodes searched: 940
+X . O
+. O .
+. . X
+move (A, 2) score: 0.8
+move (B, 1) score: 0.8
+move (B, 3) score: 0.8
+move (C, 1) score: 1
+move (C, 2) score: 0.8
+number of nodes searched: 149
+X . O
+. O .
+O . X
+O is the winning player!

@@ -1,0 +1,27 @@
+Welcome to tic tac toe!
+. . .
+. . .
+. . .
+Turned pruning on
+. . .
+X . .
+. . .
+. . .
+X . .
+O . .
+. . .
+X X .
+O . .
+. . .
+X X .
+O O .
+move (A, 1) score: -0.9
+move (A, 2) score: -0.9
+move (A, 3) score: -0.9
+move (B, 3) score: 1
+move (C, 3) score: 0.8
+number of nodes searched: 128
+. . .
+X X X
+O O .
+X is the winning player!

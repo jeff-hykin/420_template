@@ -1,0 +1,5 @@
+move X A 1
+move O A 3
+move X C 3
+choose O
+show

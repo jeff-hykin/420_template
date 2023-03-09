@@ -1,0 +1,6 @@
+pruning on
+move X B 1
+move O C 1
+move X B 2
+move O C 2
+choose X
