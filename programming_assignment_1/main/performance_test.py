@@ -1,6 +1,11 @@
 import subprocess
 import sys
 
+try:
+    from blissful_basics import print
+except Exception as error:
+    pass
+
 python_executable = sys.executable
 
 def run(*args, timeout_sec=None):
